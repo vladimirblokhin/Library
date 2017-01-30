@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.7'
 
+gem 'devise'
+
 # гем для перевода сообщений девайса
 gem 'devise-i18n'
 
