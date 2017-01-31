@@ -16,3 +16,15 @@
     <p class="norm-width"><%= @book.description %></p><br>
   </div>
 </div>
+
+<% if user_signed_in? %>
+    <div class="buffer-top">
+      <%= render partial: 'comments/form', locals: {comment: @new_comment || @book.comments.build} %>
+    </div>
+<%	end %>
+
+
+<div class="buffer-bottom buffer-top">
+  <%= render partial: 'comments/comment', collection: @book.comments.except(@new_comment) %>
+</div>
+
