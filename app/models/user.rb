@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   validates :login, presence: true,  length: {maximum: 40}
+  validates :login, uniqueness: true
 end
