@@ -15,18 +15,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
-  def destroy
-    message = {notice: 'Comment was successfully destroyed.'}
-
-    if current_user_can_edit?(@comment)
-      @comment.destroy!
-    else
-      message = {alert: 'Something went wrong'}
-    end
-    redirect_to @book, message
-  end
-
   private
     def set_book
       @book = Book.find(params[:book_id])

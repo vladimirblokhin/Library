@@ -17,6 +17,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'uglifier', '>= 1.3.0'
 
+gem 'ratyrate'
+
 # гем для поддержки jquery
 gem 'jquery-rails'
 
