@@ -15,6 +15,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment.destroy
+    redirect_to @book, notice: 'Comment was successfully created.'
+  end
+
   private
     def set_book
       @book = Book.find(params[:book_id])

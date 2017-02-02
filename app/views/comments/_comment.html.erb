@@ -1,11 +1,15 @@
 <div class="buffer-bottom">
-  <p class="norm-width"><%= comment.body %></p>
   <p>
     <span>
       <em><strong><%= comment.user.login %></strong></em>
     </span>
     <em><%= l comment.created_at, format: :short %></em>
-
+    <% if current_user && comment.user_id == current_user.id %>
+        <%= link_to(
+                fa_icon('trash'), book_comment_path(comment.book, comment),
+                method: :delete, data: {confirm: 'Are you sure?'}) %>
+    <% end %>
   </p>
+  <p class="norm-width"><%= comment.body %></p>
 </div>
 
