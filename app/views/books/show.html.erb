@@ -18,15 +18,12 @@
 </div>
 
 <div class="row">
-  <div class="small-2 large-2 columns">
-    <%= rating_for @book, "rating", disable_after_rate: true, imdb_avg: true %>
-  </div>
-  <br>
   <div class="small-2 large-4 columns">
     <% if current_user %>
-        rating: <%= rating_for @book, "rating" %>
+        <%= rating_for @book, "rating" %>
     <% end %>
   </div>
+  <br>
 </div>
 
 <% if user_signed_in? %>
