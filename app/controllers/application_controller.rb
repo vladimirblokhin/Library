@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   def current_user_can_edit?(model)
     user_signed_in? &&
       (model.user == current_user ||
-        (model.try(:book).present? && model.book.user == current_user))
+        (model.try(:comment).present? && model.comment.user == current_user))
   end
 end
