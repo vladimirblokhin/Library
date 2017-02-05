@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
       u.permit(:login,:email, :password, :password_confirmation, :current_password)
     }
   end
+
+  helper_method :current_user_can_edit?
+
+  def current_user_can_edit?(model)
+    user_signed_in? &&
+      (model.user == current_user ||
+        (model.try(:book).present? && model.book.user == current_user))
+  end
 end
