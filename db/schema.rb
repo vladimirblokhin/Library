@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205065222) do
+ActiveRecord::Schema.define(version: 20170207135502) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "authors_books", id: false, force: :cascade do |t|
+    t.integer "book_id",   null: false
+    t.integer "author_id", null: false
+  end
+
+  add_index "authors_books", ["book_id", "author_id"], name: "index_authors_books_on_book_id_and_author_id"
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
