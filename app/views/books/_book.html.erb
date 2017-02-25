@@ -4,9 +4,8 @@
 
     <div class="caption">
       <h3><%= link_to book.title, book_path(book) %></h3>
+      <p><em><%= book.book_authors %></em></p>
       <p> <%= image_tag book.image.thumb %> </p>
-      <p class="buffer-top"><em> <%= book.authors %></em></p>
-
       </div>
     </div>
   </div>

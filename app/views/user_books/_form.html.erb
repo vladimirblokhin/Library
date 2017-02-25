@@ -1,17 +1,11 @@
-<%= form_for(@user_book) do |f| %>
-  <% if @user_book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_book.errors.count, "error") %> prohibited this user_book from being saved:</h2>
+<%= form_for [@book, user_book] do |f| %>
+    <%= render partial: 'partials/form_errors', locals: {model: user_book} %>
 
-      <ul>
-      <% @user_book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= f.label 'В желаемое'%>
+      <%= f.radio_button(:list_type, 'want')%>
+      <%= f.label 'В прочитанное'%>
+      <%= f.radio_button(:list_type, 'read')%>
+      <%= f.submit 'Добавить', class: 'btn btn-success' %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

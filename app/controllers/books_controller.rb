@@ -22,7 +22,8 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.new(book_params)
-
+    @author = Author.find_or_create_by(name: @book.book_authors)
+    @book.authors << @author
     if @book.save
       redirect_to @book, notice: 'Book was successfully created.'
     else
@@ -53,6 +54,6 @@ class BooksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def book_params
-      params.require(:book).permit(:title, :description, :image, authors_attributes: [:name])
+      params.require(:book).permit(:title, :description, :image, :book_authors)
     end
 end

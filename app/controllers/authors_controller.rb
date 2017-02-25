@@ -3,7 +3,8 @@ class AuthorsController < ApplicationController
 
   # POST /authors
   def create
-    @author = Author.new(author_params)
+    name = @book.book_authors
+    @author = Author.new(name)
   end
 
   private

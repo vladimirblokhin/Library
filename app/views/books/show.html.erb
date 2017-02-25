@@ -7,28 +7,32 @@
 <div class="row thumbnail">
   <div class="col-sm-6">
     <div class="caption">
-      <p> <%= image_tag @book.image if @book.image? %> </p>
+      <p> <%= image_tag @book.image %> </p>
     </div>
   </div>
 
   <div class="col-sm-6">
     <h4>Авторы</h4>
-    <p><em> <%= @book.authors %></em></p>
+    <p><em> <%= render partial: 'authors/author', collection: @book.authors %></em></p>
     <h4>Описание</h4>
     <p class="norm-width"><%= @book.description %></p><br>
+    <div id="hintDiv"><%= imdb_style_rating_for @book, "rating" %></div>
   </div>
 </div>
 
-<div class="row">
-  <div class="small-2 large-4 columns">
-    <% if current_user %>
-        <%= rating_for @book, "rating" %>
-    <% end %>
-  </div>
-  <br>
-</div>
+
 
 <% if user_signed_in? %>
+
+    <div class="row">
+      <div class="small-2 large-4 columns">
+        <% if current_user %>
+            <%= rating_for @book, "rating", target: '#hintDiv', targetFormat: "Score: {score}" %>
+        <% end %>
+      </div>
+      <br>
+    </div>
+
     <div class="buffer-top">
       <%= render partial: 'comments/form', locals: {comment: @new_comment || @book.comments.build} %>
     </div>
