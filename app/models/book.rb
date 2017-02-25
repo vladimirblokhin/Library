@@ -7,6 +7,8 @@ class Book < ActiveRecord::Base
 
   validates :title, presence: true
   validates :title, uniqueness: true
+  validates :image, presence: true
+  validates :book_authors, presence: true
 
   mount_uploader :image, ImageUploader
 
