@@ -1,24 +1,20 @@
-# README
+### Library
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Веб-приложение для книг.
 
-Things you may want to cover:
+Создано в учебных целях.
 
-* Ruby version
+Настроен на работу с Heroku.
 
-* System dependencies
+На данный момент пользователи могут загружать книги, выставлять им оценки, писать комментарии/рецензии.
 
-* Configuration
 
-* Database creation
+### Демо
 
-* Database initialization
+https://bibliotheek.herokuapp.com/
 
-* How to run the test suite
+### Установка
 
-* Services (job queues, cache servers, search engines, etc.)
+Для разворачивания локальной копии клонируйте гит репозиторий, установите необходимые гемы.
 
-* Deployment instructions
-
-* ...
+Для разворачивания своей копии в вэбе клонируйте гит репозиторий, залейте на свое приложение на Heroku (или создайте новое heroku create).
