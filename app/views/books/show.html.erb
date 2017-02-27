@@ -16,7 +16,6 @@
     <p><em> <%= render partial: 'authors/author', collection: @book.authors %></em></p>
     <h4>Описание</h4>
     <p class="norm-width"><%= @book.description %></p><br>
-    <div id="hintDiv"><%= imdb_style_rating_for @book, "rating" %></div>
   </div>
 </div>
 
@@ -27,7 +26,7 @@
     <div class="row">
       <div class="small-2 large-4 columns">
         <% if current_user %>
-            <%= rating_for @book, "rating", target: '#hintDiv', targetFormat: "Score: {score}" %>
+            <%= rating_for @book, "rating" %>
         <% end %>
       </div>
       <br>
