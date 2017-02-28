@@ -11,6 +11,4 @@ class Book < ActiveRecord::Base
   validates :book_authors, presence: true
 
   mount_uploader :image, ImageUploader
-
-  ratyrate_rateable 'rating'
 end

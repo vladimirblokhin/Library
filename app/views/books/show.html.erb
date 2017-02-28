@@ -22,16 +22,6 @@
 
 
 <% if user_signed_in? %>
-
-    <div class="row">
-      <div class="small-2 large-4 columns">
-        <% if current_user %>
-            <%= rating_for @book, "rating" %>
-        <% end %>
-      </div>
-      <br>
-    </div>
-
     <div class="buffer-top">
       <%= render partial: 'comments/form', locals: {comment: @new_comment || @book.comments.build} %>
     </div>
