@@ -16,12 +16,22 @@
     <p><em> <%= render partial: 'authors/author', collection: @book.authors %></em></p>
     <h4>Описание</h4>
     <p class="norm-width"><%= @book.description %></p><br>
+    <% if @book.av_rating.nil? %>
+      <p>Еще нет оценок</p>
+    <% else %>
+      <p>Рейтинг: <%= @book.av_rating %></p>
+    <% end %>
   </div>
 </div>
 
 
 
 <% if user_signed_in? %>
+
+    <div class="buffer-top">
+      <%= render partial: 'rates/form', locals: {rate: @new_rate || @book.rates.build} %>
+    </div>
+
     <div class="buffer-top">
       <%= render partial: 'comments/form', locals: {comment: @new_comment || @book.comments.build} %>
     </div>
