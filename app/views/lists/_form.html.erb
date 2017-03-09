@@ -1,5 +1,5 @@
-<%= form_for [@book, user_book] do |f| %>
-    <%= render partial: 'partials/form_errors', locals: {model: user_book} %>
+<%= form_for [@book, list] do |f| %>
+    <%= render partial: 'partials/form_errors', locals: {model: list} %>
 
     <div class="field">
       <%= f.label 'В желаемое'%>

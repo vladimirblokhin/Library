@@ -1,4 +1,5 @@
 class RatesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_book, only: [:create]
 
   # POST /rates
@@ -7,8 +8,8 @@ class RatesController < ApplicationController
     @new_rate.user = current_user
 
     if @new_rate.save
-      ratings = Rate.where(book_id: @book.id).collect(&:rating)
-      @book.av_rating = ratings.sum/ratings.count
+      av_rating = Rate.where(book_id: @book.id).average(:rating)
+      @book.av_rating = av_rating
       @book.save
       redirect_to @book
     else

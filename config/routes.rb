@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :books do
     resources :comments, only: [:create, :destroy]
-    resources :user_books, only: [:create, :destroy]
+    resources :lists, only: [:create, :destroy]
     resources :rates, only: [:create]
   end
 
