@@ -39,7 +39,6 @@
 
 
 <% if user_signed_in? %>
-
     <div class="buffer-top">
       <%= render partial: 'comments/form', locals: {comment: @new_comment || @book.comments.build} %>
     </div>

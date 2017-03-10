@@ -12,6 +12,6 @@ module ApplicationHelper
   end
 
   def rating_from_user(user, book)
-    Rate.where(user_id: user.id, book_id: book.id).rating
+    Rate.where(user_id: user.id, book_id: book.id).first.rating
   end
 end

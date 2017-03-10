@@ -11,6 +11,8 @@ class Book < ActiveRecord::Base
   validates :title, uniqueness: true
   validates :image, presence: true
   validates :book_authors, presence: true
+  validates :description, presence: true
+  validates :description, length: {maximum: 700}
 
   mount_uploader :image, ImageUploader
 end

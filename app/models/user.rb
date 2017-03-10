@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :comments
-  has_many :user_book
+  has_many :lists
   has_many :rates
 
   validates :login, presence: true,  length: {maximum: 40}
