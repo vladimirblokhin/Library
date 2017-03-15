@@ -7,4 +7,25 @@
       </p>
   <% end %>
 
+  <div class="col-lg-6 buffer-top ">
+    <h4>Желаемое</h4>
+    <% @user.lists.each do |list| %>
+        <% if list.list_type == 'want' %>
+            <div class="buffer-top">
+            <%= render partial: 'books/book', object: list.book %>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+
+  <div class="col-lg-6 buffer-top ">
+    <h4>Прочитано</h4>
+    <% @user.lists.each do |list| %>
+        <% if list.list_type == 'read' %>
+            <div class="buffer-top">
+            <%= render partial: 'books/book', object: list.book %>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
 </div>

@@ -11,7 +11,7 @@ class RatesController < ApplicationController
       av_rating = Rate.where(book_id: @book.id).average(:rating)
       @book.av_rating = av_rating
       @book.save
-      redirect_to @book
+      render 'books/show'
     else
       render 'books/show', alert: 'Что-то не так'
     end

@@ -23,7 +23,7 @@ class ListsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_list
-    @list = @book.list.find(params[:id])
+    @list = @book.lists.find(params[:id])
   end
 
   def set_book
